@@ -27,20 +27,17 @@ async function getGalleries() {
         return await res.json();
     } catch (error) {
         console.error(error);
-        return [];  // Return an empty array if fetching fails
+        return [];
     }
 }
 
 export default async function Home() {
     const speeches = await getSpeeches();
     const galleries = await getGalleries();
-    const videoUrl = "./berd_banner.mp4";
 
     return (
-        <MainProvider value={{videoUrl, speeches, galleries}}>
-            <div className="relative w-full h-[400px] sm:h-[600px] md:h-[800px] overflow-hidden">
-                <VideoComponent/>
-            </div>
+        <MainProvider value={{speeches, galleries}}>
+            <VideoComponent/>
             <Performance/>
             <Tickets/>
             <Galleries/>

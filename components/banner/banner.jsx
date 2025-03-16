@@ -1,25 +1,10 @@
 "use client"
-import {useContext, useState} from "react";
-import {MainContext} from "@/providers/MainProvider";
+import Image from "next/image";
 
-export  function VideoComponent() {
-    const {videoUrl} = useContext(MainContext)
+export function VideoComponent() {
     return (
-        <div
-            className="relative w-full h-full"
-        >
-            <video
-                controls={false} // Show controls only when hovered
-                preload="metadata" // Preload video metadata
-                aria-label="Video player"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover" // Tailwind: full width, full height, object cover
-            >
-                <source src={videoUrl} type="video/mp4"/>
-            </video>
+        <div className="relative w-full h-[800px]">
+          <Image className="w-full h-full object-cover" src={"/banner.jpg"} alt={"Banner"} width={1200} height={800} />
         </div>
     );
 }

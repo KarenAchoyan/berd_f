@@ -7,11 +7,11 @@ const Modal = ({ openModal, video }) => {
     return (
         <>
             <div
-                className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+                className="fixed top-0 inset-0 bg-[#000000ab] bg-opacity-50 z-[3333333333333333] flex items-center justify-center"
                 onClick={openModal}
             ></div>
             <div
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-white z-50 p-4 rounded-lg shadow-lg"
+                className="fixed z-[3333333333333334] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-white  p-4 rounded-lg shadow-lg"
             >
                 <iframe
                     width="100%"
