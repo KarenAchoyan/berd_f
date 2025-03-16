@@ -17,7 +17,6 @@ export  function VideoComponent() {
                 loop
                 playsInline
                 className="w-full h-full object-cover" // Tailwind: full width, full height, object cover
-                loading="lazy" // Lazy load
             >
                 <source src={videoUrl} type="video/mp4"/>
             </video>
