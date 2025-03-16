@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.imageVideo svg{
+  color:white;
+}
+.item-gallery .ant-image{
+  width: 100%!important;
+  height: 100%!important;
+}
+
+.animation-header .header {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it is above other content */
+  /* Add other styles as needed */
+  background: #000000bf;
+  transition: 1s;
+}
+
+.animation-header.show .header {
+  top: 0;
+}
+.slick-dots li button:before{
+  font-size: 15px!important;
+  margin-top: 20px;
+}
