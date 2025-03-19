@@ -36,7 +36,7 @@ export default async function Home() {
     const galleries = await getGalleries();
 
     return (
-        <MainProvider value={{speeches, galleries}}>
+        <MainProvider value={{speeches, galleries, image:"/banner.jpg"}}>
             <VideoComponent/>
             <Performance/>
             <Tickets/>
