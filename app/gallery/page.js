@@ -4,10 +4,9 @@ import {Image} from "antd";
 import Item from "@/components/galleries/item";
 
 export async function getGalleries() {
-    const res = await fetch('https://berd.dahk.am/api/galleries', {
-        next: { revalidate: 3600 }, // Revalidate every hour
-    });
-    return res.json();
+    const res = await fetch('https://berd.dahk.am/api/galleries');
+    const galleries = await res.json();
+    return { props: { galleries }, revalidate: 3600 };
 }
 
 const Page = async () => {
