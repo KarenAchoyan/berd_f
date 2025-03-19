@@ -14,7 +14,7 @@ async function getGalleries() {
     return res.json();
 }
 
-export default async function Home() {
+export default async function Page() {
     const speeches = await getSpeeches();
     const galleries = await getGalleries();
 
