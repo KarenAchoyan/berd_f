@@ -2,11 +2,9 @@ import React from 'react';
 import PageBanner from "@/components/pageBanner/pageBanner";
 import {Image} from "antd";
 import Item from "@/components/galleries/item";
-
-export async function getGalleries() {
-    const res = await fetch('https://berd.dahk.am/api/galleries');
-    const galleries = await res.json();
-    return { props: { galleries }, revalidate: 3600 };
+async function getGalleries() {
+    const res = await fetch('https://berd.dahk.am/api/galleries', { cache: "no-store" });
+    return res.json();
 }
 
 const Page = async () => {
