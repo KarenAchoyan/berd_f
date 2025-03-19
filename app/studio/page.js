@@ -19,10 +19,10 @@ const Page = () => {
     return (
         <div className='costumes '>
             <PageBanner/>
-            <div className="container m-auto">
+            <div className="container m-auto p-[14px]">
                 <div className='w-full  flex justify-center items-center flex-wrap'>
                     <div className='w-full md:w-[50%]  h-full pr-10'>
-                        <h3 className='text-3xl my-5'>Մեր ստուդիան</h3>
+                        <h3 className='text-3xl my-7'>Մեր ստուդիան</h3>
                         <p>
                             Հայկական տարազը հազարամյակների խորքից է գալիս և իր մեջ է արտացոլում հայ ազգի ամբողջական
                             պատմությունը՝ հեթանոսական դարաշրջանից մինչև մեր օրերը: Հայկական տարազի մասին տեղեկություններ
@@ -39,13 +39,13 @@ const Page = () => {
                             կրոնական համոզմունքները:
                         </p>
                     </div>
-                    <div className='w-full md:w-[50%] h-full'>
+                    <div className='w-full md:w-[50%] pt-10 h-full'>
                         <Image src="/performance1.png" alt={""}/>
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto py-6">
+            <div className="container mx-auto py-6 p-[14px]">
                 <Carousel
                     autoplay
                     dots

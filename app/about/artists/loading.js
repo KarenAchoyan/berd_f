@@ -1,10 +1,11 @@
 import React from 'react';
+import LoadingComponent from "@/components/loading/loading";
 
 const Loading = () => {
     return (
-        <div>
-            <h1>ok</h1>
-        </div>
+        <>
+            <LoadingComponent/>
+        </>
     );
 };
 

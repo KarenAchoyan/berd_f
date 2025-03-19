@@ -9,7 +9,7 @@ async function getVideos(slug) {
 }
 
 const Page = async ({params}) => {
-    const {slug} = params;
+    const {slug} = await params;
     const videos = await getVideos(slug);
     return (
         <>
