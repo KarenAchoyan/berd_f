@@ -2,8 +2,11 @@ import React from 'react';
 import PageBanner from "@/components/pageBanner/pageBanner";
 import {Image} from "antd";
 import Item from "@/components/galleries/item";
-async function getGalleries() {
-    const res = await fetch('https://berd.dahk.am/api/galleries');
+
+export async function getGalleries() {
+    const res = await fetch('https://berd.dahk.am/api/galleries', {
+        next: { revalidate: 3600 }, // Revalidate every hour
+    });
     return res.json();
 }
 

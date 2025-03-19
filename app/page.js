@@ -5,12 +5,16 @@ import Galleries from "@/components/galleries/galleries";
 import { MainProvider } from "@/providers/MainProvider";
 
 async function getSpeeches() {
-    const res = await fetch('https://berd.dahk.am/api/speeches'); // Avoid caching if needed
+    const res = await fetch('https://berd.dahk.am/api/speeches', {
+        next: { revalidate: 3600 }, // Revalidate every hour
+    }); // Avoid caching if needed
     return res.json();
 }
 
 async function getGalleries() {
-    const res = await fetch('https://berd.dahk.am/api/galleries/limit');
+    const res = await fetch('https://berd.dahk.am/api/galleries/limit', {
+        next: { revalidate: 3600 }, // Revalidate every hour
+    });
     return res.json();
 }
 
