@@ -3,8 +3,7 @@ import Image from "next/image";
 import {useContext} from "react";
 import {MainContext} from "@/providers/MainProvider";
 
-export async function VideoComponent() {
-
+export function VideoComponent() {
     const {image} = useContext(MainContext);
     return (
         <div className="relative w-full h-[800px]">

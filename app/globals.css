@@ -61,11 +61,19 @@ body {
   height: 40px;
   animation: spin 2s linear infinite;
 }
+.gallery-item .ant-image{
+  width: 100%;
+  height: 100%;
+}
 .item-carousel .ant-image{
   width: 100%;
   height: 100%;
 }
 .item-carousel .ant-image img{
+  width: 100%;
+  height: 100%;
+}
+.gallery-item .ant-image img{
   width: 100%;
   height: 100%;
 }
