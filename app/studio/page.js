@@ -40,7 +40,7 @@ const Page = () => {
                         </p>
                     </div>
                     <div className='w-full md:w-[50%] h-full'>
-                        <Image src="/performance1.png"/>
+                        <Image src="/performance1.png" alt={""}/>
                     </div>
                 </div>
             </div>
