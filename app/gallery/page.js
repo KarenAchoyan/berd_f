@@ -1,7 +1,5 @@
 import React from 'react';
 import PageBanner from "@/components/pageBanner/pageBanner";
-import {log} from "next/dist/server/typescript/utils";
-
 import {Image} from "antd";
 const Page = () => {
     let images = [
@@ -40,7 +38,7 @@ const Page = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
                         {images.map((src, index) => (
                             <div key={index} className="overflow-hidden h-[400px] w-[400px] rounded-lg shadow-md">
-                                <img
+                                <Image
                                     src={'1.jpg'}
                                     alt={`Gallery image ${index + 1}`}
                                     className="w-full full object-cover transition-transform duration-300 hover:scale-105"

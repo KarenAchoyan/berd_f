@@ -1,34 +1,17 @@
 import Performance from "@/components/performance/performance";
 import Tickets from "@/components/tickets/tickets";
-import {Suspense} from "react";
-import {VideoComponent} from "@/components/banner/banner";
+import { VideoComponent } from "@/components/banner/banner";
 import Galleries from "@/components/galleries/galleries";
-import {MainProvider} from "@/providers/MainProvider";
+import { MainProvider } from "@/providers/MainProvider";
 
 async function getSpeeches() {
-    try {
-        const res = await fetch('https://berd.dahk.am/api/speeches');
-        if (!res.ok) {
-            throw new Error('Failed to fetch speeches');
-        }
-        return await res.json();
-    } catch (error) {
-        console.error(error);
-        return [];  // Return an empty array if fetching fails
-    }
+    const res = await fetch('https://berd.dahk.am/api/speeches', { cache: "no-store" }); // Avoid caching if needed
+    return res.json();
 }
 
 async function getGalleries() {
-    try {
-        const res = await fetch('https://berd.dahk.am/api/galleries');
-        if (!res.ok) {
-            throw new Error('Failed to fetch galleries');
-        }
-        return await res.json();
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
+    const res = await fetch('https://berd.dahk.am/api/galleries', { cache: "no-store" });
+    return res.json();
 }
 
 export default async function Home() {
@@ -36,11 +19,11 @@ export default async function Home() {
     const galleries = await getGalleries();
 
     return (
-        <MainProvider value={{speeches, galleries, image:"/banner.jpg"}}>
-            <VideoComponent/>
-            <Performance/>
-            <Tickets/>
-            <Galleries/>
+        <MainProvider value={{ speeches, galleries, image: "/banner.jpg" }}>
+            <VideoComponent />
+            <Performance />
+            <Tickets />
+            <Galleries />
         </MainProvider>
     );
 }
