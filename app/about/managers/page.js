@@ -5,7 +5,7 @@ import Managers from "@/components/about/managers";
 
 
 async function getManagers() {
-    const res = await fetch('https://berd.dahk.am/api/managers')
+    const res = await fetch('https://berd.dahk.am/api/managers', { cache: "no-store" })
     return res.json()
 }
 
