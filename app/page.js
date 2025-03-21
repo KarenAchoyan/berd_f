@@ -13,13 +13,17 @@ async function getGalleries() {
     const res = await fetch('https://berd.dahk.am/api/gallery-images/limit', { cache: "no-store" });
     return res.json();
 }
-
+async function getInfo() {
+    const res = await fetch('https://berd.dahk.am/api/getInfo', { cache: "no-store" })
+    return res.json()
+}
 export default async function Page() {
     const speeches = await getSpeeches();
     const galleries = await getGalleries();
+    const infos = await getInfo();
 
     return (
-        <MainProvider value={{ speeches:speeches.data, galleries:galleries.data, image: "/banner.jpg" }}>
+        <MainProvider value={{ speeches:speeches.data, galleries:galleries.data, image: infos?.data?.banner_image }}>
             <VideoComponent />
             <Performance />
             <Tickets />

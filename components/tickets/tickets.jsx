@@ -55,7 +55,7 @@ const tickets = [
 const Tickets = () => {
     return (
         <div className="bg-red-900 pb-20 mt-20">
-            <h2 className="container m-auto py-10 text-white text-2xl font-bold  mb-6">
+            <h2 className="text-center sm:text-left container m-auto py-10 text-white text-2xl font-bold  mb-6">
                 Համերգներ և տոմսեր
             </h2>
             <div className="container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -7,7 +7,7 @@ async function getInfo() {
 }
 
 const Page = async () => {
-    const info = await getManagers();
+    const info = await getInfo();
     const data = info.data;
     return (
         <div>

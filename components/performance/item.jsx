@@ -17,7 +17,7 @@ const ItemVideo = ({ openModal, item, setVideo }) => {
                     <Skeleton.Image active style={{ width: 350, height: 400 }} /> // Ant Design Skeleton
                 )}
 
-                <Image
+                <img
                     src={process.env.IMAGE_URL + item?.avatar}
                     alt=""
                     onLoad={() => setIsLoader(false)}
