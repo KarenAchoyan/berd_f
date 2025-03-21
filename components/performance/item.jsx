@@ -8,7 +8,7 @@ const ItemVideo = ({ openModal, item, setVideo }) => {
 
     function op() {
         openModal();
-        setVideo(item.video);
+        setVideo(item.youtube_link);
     }
 
     return (
@@ -21,7 +21,7 @@ const ItemVideo = ({ openModal, item, setVideo }) => {
                 <Image
                     width={500}
                     height={500}
-                    src={process.env.IMAGE_URL2 + item?.image}
+                    src={process.env.IMAGE_URL + item?.avatar}
                     alt=""
                     onLoad={() => setIsLoader(false)}
                     className={`${isLoading ? 'opacity-100' : 'opacity-100'} transition-opacity duration-500 w-full h-full object-cover`}
