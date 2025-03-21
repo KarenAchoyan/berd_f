@@ -1,15 +1,17 @@
 "use client"
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './header.module.css';
 import Link from "next/link";
 import {MenuOutlined} from "@ant-design/icons";
 import {Drawer, Space} from 'antd';
+import {AppContext} from "@/providers/AppProvider";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
     const [placement, setPlacement] = useState('right');
     const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
     const [performanceMenuOpen, setPerformanceMenuOpen] = useState(false);
+    const events = useContext(AppContext);
 
     const showDrawer = () => {
         setOpen(true);
@@ -52,10 +54,9 @@ const Header = () => {
                                 <div className={styles.drb}>
                                     <div className={styles.drbContent}>
                                         <ul>
-                                            <li><Link href='/events/9'>Ելույթներ Հայաստանում</Link></li>
-                                            <li><Link href='/events/10'>Միջազգային ելույթներ</Link></li>
-                                            <li><Link href='/events/11'>Տեսանյութեր</Link></li>
-                                            <li><Link href='/events/12'>Արխիվ</Link></li>
+                                            {events.map((item, index) => (
+                                                <li key={index}><Link href={'/events/'+item.id}>{item.name}</Link></li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>
@@ -104,10 +105,9 @@ const Header = () => {
                                         {performanceMenuOpen && (
                                             <div className={styles.customDropdown}>
                                                 <ul>
-                                                    <li><Link href='/events/9'>Ելույթներ Հայաստանում</Link></li>
-                                                    <li><Link href='/events/10'>Միջազգային ելույթներ</Link></li>
-                                                    <li><Link href='/events/11'>Տեսանյութեր</Link></li>
-                                                    <li><Link href='/events/12'>Արխիվ</Link></li>
+                                                    {events.map((item, index) => (
+                                                        <li key={index}><Link href={'/events/'+item.id}>{item.title}</Link></li>
+                                                    ))}
                                                 </ul>
                                             </div>
                                         )}

@@ -11,9 +11,10 @@ async function getVideos(slug) {
 const Page = async ({params}) => {
     const {slug} = await params;
     const videos = await getVideos(slug);
+    const data = videos.data;
     return (
         <>
-           <SpeechesProvider value={videos}>
+           <SpeechesProvider value={data}>
                <AllSpeeches/>
            </SpeechesProvider>
         </>

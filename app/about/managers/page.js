@@ -11,11 +11,11 @@ async function getManagers() {
 
 const Page = async () => {
     const managers = await getManagers();
-
+    const data = managers.data;
     return (
         <div>
             <PageBanner title={''}/>
-            <ManagerProvider value={managers}>
+            <ManagerProvider value={data}>
                 <Managers/>
             </ManagerProvider>
         </div>

@@ -1,8 +1,14 @@
 import React from 'react';
 import PageBanner from "@/components/pageBanner/pageBanner";
 import styles from "../about.module.css"
+async function getInfo() {
+    const res = await fetch('https://berd.dahk.am/api/getInfo', { cache: "no-store" })
+    return res.json()
+}
 
-const Page = () => {
+const Page = async () => {
+    const info = await getManagers();
+    const data = info.data;
     return (
         <div>
             <PageBanner title={''}/>
@@ -25,9 +31,6 @@ const Page = () => {
                 Միաժամանակ «Բերդ» պարային անսամբլը իր մասնակցությունն է բերել Հայաստանի Հանրապետությունում կազմակերպված պետական-կառավարական բազմաթիվ միջոցառումների և հանդիսությունների։
                 2009 թվականին ՀՀ նախագահի հրամանագրով «Բերդ» պարային անսամբլին շնորհվել է «Հայաստանի Վաստակավոր Կոլեկտիվ» պատվավոր կոչումը։
                 Ընդհանուև առմամբ Հայաստանի վաստակավոր կոլեկտիվ «Բերդ» պարային անսամբլը իր ստեղծագործական գործունեության ընթացքում շրջագայել է աշխարհի ավելի քան 30 երկրներում, մասնակցել շուրջ 500 միջազգային փառատոնների, հադես եկել շուրջ 1000 մենահամերգներով և ունեցել ավելի քան մեկ միլիոն հանդիսատես։
-
-
-
             </div>
         </div>
     );

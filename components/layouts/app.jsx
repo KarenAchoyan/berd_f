@@ -1,12 +1,11 @@
 "use client"
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer"
 import AnimationHeader from "./animationHeader";
 
 const App = ({children}) => {
     const [showAnimationHeader, setShowAnimationHeader] = useState(false);
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY >= 500) {
@@ -24,7 +23,7 @@ const App = ({children}) => {
     }, []);
     return (
         <div>
-            <Header/>
+            <Header />
             <AnimationHeader show={showAnimationHeader}/>
             {children}
             <Footer/>
