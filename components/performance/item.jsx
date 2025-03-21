@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { Skeleton } from "antd";
-import Image from "next/image";
+import { Skeleton,Image } from "antd";
 
 const ItemVideo = ({ openModal, item, setVideo }) => {
     const [isLoading, setIsLoader] = useState(true);
@@ -19,8 +18,6 @@ const ItemVideo = ({ openModal, item, setVideo }) => {
                 )}
 
                 <Image
-                    width={500}
-                    height={500}
                     src={process.env.IMAGE_URL + item?.avatar}
                     alt=""
                     onLoad={() => setIsLoader(false)}
