@@ -1,44 +1,51 @@
-import React from 'react';
-import styles from './footer.module.css'
+import React from "react";
+
 const Footer = () => {
   return (
-    <>
-      <div className={styles.footer}>
-        <div className={styles.content}>
-          <div className={styles.info}>
-            <ul>
-              <li>Ինֆորմացիաներ</li>
-              <li>Կենսագրություն</li>
-              <li>Ղեկավարներ</li>
-              <li>Պատկերասրահ</li>
+      <footer className="bg-white text-gray-900 py-10 mt-10 border-t border-gray-300">
+        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+          {/* About Us */}
+          <div>
+            <h2 className="text-lg font-semibold mb-3">Մեր Մասին</h2>
+            <p className="text-gray-600 text-sm">
+              Մենք առաջարկում ենք բարձրորակ ելույթներ, ներկայացնելով մեր մշակույթը
+              աշխարհին:
+            </p>
+          </div>
+
+          {/* Useful Links */}
+          <div>
+            <h2 className="text-lg font-semibold mb-3">Օգտակար Հղումներ</h2>
+            <ul className="text-gray-600 text-sm space-y-2">
+              <li><a href="#" className="hover:text-gray-800">Ինֆորմացիաներ</a></li>
+              <li><a href="#" className="hover:text-gray-800">Կենսագրություն</a></li>
+              <li><a href="#" className="hover:text-gray-800">Պատկերասրահ</a></li>
+              <li><a href="#" className="hover:text-gray-800">Տեսանյութեր</a></li>
             </ul>
           </div>
-          <div className={styles.info}>
-            <ul>
-              <li>Ելույթներ</li>
-              <li>Ելույթներ Հայաստանում</li>
-              <li>Միջազգային ելույթներ</li>
-              <li>Տեսանյութեր</li>
+
+          {/* Contact Info */}
+          <div>
+            <h2 className="text-lg font-semibold mb-3">Կապ</h2>
+            <ul className="text-gray-600 text-sm space-y-2">
+              <li><a href="tel:+37477272198" className="hover:text-gray-800">+374 77 272198</a></li>
+              <li><a href="tel:+37491279198" className="hover:text-gray-800">+374 91 279198</a></li>
+              <li><a href="mailto:berdensemble@gmail.com" className="hover:text-gray-800">berdensemble@gmail.com</a></li>
             </ul>
           </div>
-          <div className={styles.info}>
-            <ul>
-              <li>Էջեր</li>
-              <li>Նորություններ</li>
-              <li>Մեր ստուդիան</li>
-              <li>Մեր տարազները</li>
-            </ul>
-          </div>
-          <div className={styles.info}>
-            <ul>
-              <li>Հետադարձ կապ</li>
-              <li>+37477474747</li>
-              <li>bert@gmail.com</li>
-            </ul>
+
+          {/* Logo */}
+          <div className="flex flex-col items-center">
+            <img src={'logo.png'} alt="Logo" className="w-24 mb-3" />
+            <p className="text-gray-600 text-sm">Մշակութային ժառանգության պահպանում</p>
           </div>
         </div>
-      </div>
-    </>
+
+        {/* Bottom Line */}
+        <div className="border-t border-gray-300 mt-6 pt-4 text-center text-gray-600 text-sm">
+          <p>Կայքը ստեղծվել է <span className="text-gray-900 font-semibold">GeekLab</span>-ի կողմից</p>
+        </div>
+      </footer>
   );
 };
 

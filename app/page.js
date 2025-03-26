@@ -1,6 +1,6 @@
 import Performance from "@/components/performance/performance";
 import Tickets from "@/components/tickets/tickets";
-import { VideoComponent } from "@/components/banner/banner";
+import {Banner} from "@/components/banner/banner";
 import Galleries from "@/components/galleries/galleries";
 import { MainProvider } from "@/providers/MainProvider";
 
@@ -21,10 +21,14 @@ export default async function Page() {
     const speeches = await getSpeeches();
     const galleries = await getGalleries();
     const infos = await getInfo();
-
+    const images = [
+        "banner.jpg",
+        "banner.jpg",
+        "banner.jpg",
+    ]
     return (
-        <MainProvider value={{ speeches:speeches.data, galleries:galleries.data, image: infos?.data?.banner_image }}>
-            <VideoComponent />
+        <MainProvider value={{ speeches:speeches.data, galleries:galleries.data, images }}>
+            <Banner />
             <Performance />
             <Tickets />
             <Galleries />
