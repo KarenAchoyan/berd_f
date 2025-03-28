@@ -2,12 +2,6 @@
 import React from "react";
 import Event from "@/components/event/event";
 
-const tickets = [
-    { id: 1, city: "Yerevan", date: "2024-09-18" },
-    { id: 2, city: "Yerevan", date: "2024-09-18" },
-    { id: 3, city: "Yerevan", date: "2024-09-18" },
-    { id: 4, city: "Yerevan", date: "2024-09-18" },
-];
 
 const Tickets = () => {
     return (

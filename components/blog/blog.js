@@ -1,9 +1,11 @@
-import Image from "next/image";
-import {CalendarOutlined} from "@ant-design/icons";
+"use client"
 import Item from "@/components/blog/item";
 import Link from "next/link";
+import {useContext} from "react";
+import {MainContext} from "@/providers/MainProvider";
 
 export default function Blog() {
+    const {blogs} = useContext(MainContext);
     return (
         <div>
             <div className="text-center py-5">
@@ -11,8 +13,10 @@ export default function Blog() {
                     Բլոգ
                 </h1>
             </div>
-            <Item/>
-            <Item reverse={true}/>
+            {blogs?.map((item, index) => (
+                <Item reverse={index%2===0} key={index} item={item} />
+            ))}
+
             <div className="text-center py-5">
                 <Link href={'/blogs'}>
                     <button className='px-5 py-2 border-black border-[1px] cursor-pointer'>ՏԵսնել բոլորը</button>

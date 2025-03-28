@@ -1,6 +1,5 @@
 "use client"
 import React, {useContext} from 'react';
-import {Image} from "antd";
 import {MainContext} from "@/providers/MainProvider";
 import Item from "@/components/galleries/item";
 

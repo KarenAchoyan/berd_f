@@ -12,7 +12,6 @@ const Header = () => {
     const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
     const [performanceMenuOpen, setPerformanceMenuOpen] = useState(false);
     const events = useContext(AppContext);
-
     const showDrawer = () => {
         setOpen(true);
     };
@@ -71,6 +70,7 @@ const Header = () => {
                             <li><Link href='/costumes'>Մեր տարազները</Link></li>
                             {/*<li><Link href='/news'>Նորություններ</Link></li>*/}
                             <li><Link href='/studio'>Մեր ստուդիան</Link></li>
+                            <li><Link href='/blogs'>Բլոգ</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -106,11 +106,14 @@ const Header = () => {
                                             <div className={styles.customDropdown}>
                                                 <ul>
                                                     {events.map((item, index) => (
-                                                        <li key={index}><Link href={'/events/'+item.id}>{item.title}</Link></li>
+                                                        <li key={index}><Link href={'/events/'+item.id}>{item.name}</Link></li>
                                                     ))}
                                                 </ul>
                                             </div>
                                         )}
+
+
+
                                     </li>
                                 </ul>
                             </div>
@@ -126,7 +129,7 @@ const Header = () => {
                 </div>
             </div>
         </>
-);
+    );
 };
 
 export default Header;

@@ -5,13 +5,12 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 dayjs.extend(customParseFormat);
 
-const eventsData = ["18-03-2025", "20-03-2025", "23-03-2025"].map(date => dayjs(date, 'DD-MM-YYYY'));
 
-const CustomCalendar = () => {
+const CustomCalendar = ({dates}) => {
     const [selectedDate, setSelectedDate] = useState(dayjs());
-
     const handleDateClick = (day) => {
-        const isEvent = eventsData.some(eventDate => eventDate.isSame(day, 'day'));
+        const dayName = day.format('D');
+        const isEvent =dates.filter(eventDate =>  eventDate.split('-')[0]===dayName).length>0;
         if (isEvent) {
             alert(`Event on ${day.format('DD-MM-YYYY')}`);
         }
@@ -40,8 +39,7 @@ const CustomCalendar = () => {
         for (let day = 1; day <= endOfMonth.date(); day++) {
             const currentDay = dayjs(selectedDate).set('date', day);
             const isSelected = currentDay.isSame(selectedDate, 'day');
-            const isEvent = eventsData.some(eventDate => eventDate.isSame(currentDay, 'day'));
-
+            const isEvent = dates.filter(eventDate =>  +eventDate.split('-')[0]===day).length>0;
             days.push(
                 <div
                     key={day}
