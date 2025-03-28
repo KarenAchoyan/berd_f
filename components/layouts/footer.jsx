@@ -3,18 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
       <footer className="bg-white text-gray-900 py-10 mt-10 border-t border-gray-300">
-        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
-          {/* About Us */}
-          <div>
-            <h2 className="text-lg font-semibold mb-3">Մեր Մասին</h2>
-            <p className="text-gray-600 text-sm">
-              Մենք առաջարկում ենք բարձրորակ ելույթներ, ներկայացնելով մեր մշակույթը
-              աշխարհին:
-            </p>
-          </div>
-
-          {/* Useful Links */}
-          <div>
+        <div className="container mx-auto flex justify-end ">
+          <div className='w-1/4'>
             <h2 className="text-lg font-semibold mb-3">Օգտակար Հղումներ</h2>
             <ul className="text-gray-600 text-sm space-y-2">
               <li><a href="#" className="hover:text-gray-800">Ինֆորմացիաներ</a></li>
@@ -23,9 +13,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-gray-800">Տեսանյութեր</a></li>
             </ul>
           </div>
-
-          {/* Contact Info */}
-          <div>
+          <div className='w-1/4'>
             <h2 className="text-lg font-semibold mb-3">Կապ</h2>
             <ul className="text-gray-600 text-sm space-y-2">
               <li><a href="tel:+37477272198" className="hover:text-gray-800">+374 77 272198</a></li>
@@ -35,7 +23,7 @@ const Footer = () => {
           </div>
 
           {/* Logo */}
-          <div className="flex flex-col items-center">
+          <div className="w-1/4 flex flex-col items-center">
             <img src={'logo.png'} alt="Logo" className="w-24 mb-3" />
             <p className="text-gray-600 text-sm">Մշակութային ժառանգության պահպանում</p>
           </div>

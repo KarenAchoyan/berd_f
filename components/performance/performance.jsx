@@ -70,6 +70,8 @@ const Performance = () => {
                 </div>
             </div>
             {showModal && <Modal openModal={openModal} video={video} videoStarted={videoStarted}/>}
+
+
         </>
     );
 };

@@ -3,6 +3,7 @@ import Tickets from "@/components/tickets/tickets";
 import {Banner} from "@/components/banner/banner";
 import Galleries from "@/components/galleries/galleries";
 import { MainProvider } from "@/providers/MainProvider";
+import Blog from "@/components/blog/blog";
 
 async function getSpeeches() {
     const res = await fetch('https://berd.dahk.am/api/events/limit', { cache: "no-store" }); // Avoid caching if needed
@@ -31,7 +32,9 @@ export default async function Page() {
             <Banner />
             <Performance />
             <Tickets />
+            <Blog/>
             <Galleries />
+
         </MainProvider>
     );
 }
