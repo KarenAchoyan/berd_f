@@ -1,6 +1,7 @@
 import React from 'react';
 import {CalendarOutlined} from "@ant-design/icons";
 import {truncateText} from "@/utils/utils";
+import Link from "next/link";
 
 const Item = ({item, reverse = false}) => {
     return (
@@ -31,9 +32,9 @@ const Item = ({item, reverse = false}) => {
                             "                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n" +
                             "                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam", 250)}
                     </p>
-                    <a href="#" className="text-black font-bold mt-3 flex items-center hover:text-[#82181a]">
+                    <Link href="/blogs/1" className="text-black font-bold mt-3 flex items-center hover:text-[#82181a]">
                         Կարդալ ավելին <span className="ml-1">&rarr;</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
