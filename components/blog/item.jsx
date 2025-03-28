@@ -5,7 +5,7 @@ import {truncateText} from "@/utils/utils";
 const Item = ({item, reverse = false}) => {
     return (
         <div
-            className={`h-auto md:h-[500px] flex flex-col  items-center md:items-start gap-6 py-6 rounded-lg container mx-auto ${reverse ? "md:flex-row-reverse" : "md:flex-row"}`}>
+            className={`h-auto md:h-[500px] px-10 md:px-0 flex flex-col  items-center md:items-start gap-6 py-6 rounded-lg container mx-auto ${reverse ? "md:flex-row-reverse" : "md:flex-row"}`}>
             <div className="relative h-full w-full md:w-1/2 flex justify-center">
                 <img
                     src="/performance1.png"
