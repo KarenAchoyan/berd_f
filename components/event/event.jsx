@@ -5,6 +5,7 @@ import CustomCalendar from "@/components/event/customCalendar";
 import {MainContext} from "@/providers/MainProvider";
 import dayjs from 'dayjs';
 import {truncateText} from "@/utils/utils";
+import parse from "html-react-parser";
 
 const CalendarEvent = () => {
     const {tickets}= useContext(MainContext);
@@ -43,7 +44,9 @@ const CalendarEvent = () => {
                         <h3 className="text-black text-lg font-semibold mb-3">
                             {selectedDate?.format("MMMM DD, YYYY")}
                         </h3>
-                        <p className="text-sm text-black" dangerouslySetInnerHTML={{ __html: truncateText(firstTicket?.content, 500) }}/>
+                        <div className="text-sm text-black">
+                            {parse(truncateText(firstTicket?.content, 500) || "")}
+                        </div>
                         <a
                             href={firstTicket?.url}
                             className="text-red-700 font-bold underline mt-5 block text-right hover:text-red-900"

@@ -2,115 +2,65 @@ import React from 'react';
 import PageBanner from "@/components/pageBanner/pageBanner";
 import {Image} from "antd";
 import {CalendarOutlined} from "@ant-design/icons";
+import Details from "@/components/blog/details";
+import Head from "next/head";
 
-const Page = () => {
-    const news = [
-        'Participation in the "Teaching for Success" Conference',
-        'Workshop: "Challenges of Multimedia Translation"',
-        'Educational Journey to the United Arab Emirates',
-        'Psychology students of the European University of Armenia visited the ASIPCS "Sports Kab" scientific research center',
-        'Dr. Reinhard Wagner Met with the EUA Academic & Administrative Staff',
-        'The "Law Delegation" Has Launched!',
-        'A meeting with Areg Gevorgyan',
-        '"Khosrov Forest" Reserve: Results of a Hiking Trip in Winter Conditions',
-        'Dr. Reinhard Wagner Met with EUA Partners',
-    ];
+async function getSingleNews(slug) {
+    try {
+        const res = await fetch(`https://berd.dahk.am/api/blogs/${slug}`, {
+            cache: "no-store",
+        });
+
+        if (!res.ok) {
+            return {success: false, message: `Error ${res.status}: News not found`};
+        }
+
+        const data = await res.json();
+        return {success: true, data};
+    } catch (error) {
+        return {success: false, message: "Failed to fetch news"};
+    }
+}
+
+export async function generateMetadata({ params }) {
+    const result = await getSingleNews(params.slug);
+
+    if (!result.success || !result.data || !result.data.data) {
+        return {
+            title: 'Blog Post Not Found',
+            openGraph: {
+                title: 'Blog Post Not Found',
+                description: 'This blog post could not be found.',
+            },
+        };
+    }
+
+    const data = result.data.data;
+    const title = data.title || "Blog Post";
+    const description = data.content?.substring(0, 160) || "Read our latest blog post on various topics.";
+    const image = process.env.IMAGE_URL + data.avatar || "/default-avatar.png"; // Fallback image if no avatar
+
+    return {
+        title: `${title} | Blog`,
+        openGraph: {
+            title: title,
+            description: description,
+            image: image,
+            type: 'article',
+            url: `https://berd-f.vercel.app/blog/${params.slug}`,
+        },
+    };
+}
+
+const Page = async ({params}) => {
+    const result = await getSingleNews(params.slug);
+    const data = await result.data.data;
+    const lastNews = result.data.lastNews;
     return (
         <div>
+
             <PageBanner/>
-            <div className='container mx-auto'>
-                <div className='flex flex-wrap px-5'>
-                    <div className='w-full lg:w-[70%] '>
-                        <div className='mt-10 single-blog'>
-                            <Image preview={true} src='/banner.jpg' className='w-full h-[500px] object-cover'/>
-                        </div>
-                        <div>
-                            <div className="flex items-center text-gray-500 text-sm mt-2">
-                                <CalendarOutlined className="mr-1"/>
-                                <span>October 8, 2019</span>
-                            </div>
-                            <div className='mt-10'>
-                                <h1 className='text-5xl font-bold'> October 8, 2019
-                                    Moving trough: the everyday urban jungle of your city</h1>
-                                <div className="content mt-5">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit sed. Eiusmod tempor.
-                                        incididu nt ut
-                                        labore et dolore magna aliqua. Ut enim. ad minim veniam, uis nostrud exerc
-                                        itation ullamco.
-                                        Laboris nisi. ut aliquip ex ea commodo consequat. Duis aute irure dolr.
-                                        inreprehen derit in
-                                        voluptate velit esse cillum dolore. Eu fugiat nulla pariatur. Excep teur sint
-                                        occaecat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim idlaborum. Sed ut persp
-                                        iciatis
-                                        unde omnis iste natus error sit. voluptatem accusantium doloremque laudantium,
-                                        totam rem
-                                        aperiam. Architecto beatae vitae dicta sunt explicabo.Eu fugiat nulla pariatur.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit sed. Eiusmod tempor.
-                                        incididu nt ut
-                                        labore et dolore magna aliqua. Ut enim. ad minim veniam, uis nostrud exerc
-                                        itation ullamco.
-                                        Laboris nisi. ut aliquip ex ea commodo consequat. Duis aute irure dolr.
-                                        inreprehen derit in
-                                        voluptate velit esse cillum dolore. Eu fugiat nulla pariatur. Excep teur sint
-                                        occaecat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim idlaborum. Sed ut persp
-                                        iciatis
-                                        unde omnis iste natus error sit. voluptatem accusantium doloremque laudantium,
-                                        totam rem
-                                        aperiam. Architecto beatae vitae dicta sunt explicabo.Eu fugiat nulla pariatur.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit sed. Eiusmod tempor.
-                                        incididu nt ut
-                                        labore et dolore magna aliqua. Ut enim. ad minim veniam, uis nostrud exerc
-                                        itation ullamco.
-                                        Laboris nisi. ut aliquip ex ea commodo consequat. Duis aute irure dolr.
-                                        inreprehen derit in
-                                        voluptate velit esse cillum dolore. Eu fugiat nulla pariatur. Excep teur sint
-                                        occaecat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim idlaborum. Sed ut persp
-                                        iciatis
-                                        unde omnis iste natus error sit. voluptatem accusantium doloremque laudantium,
-                                        totam rem
-                                        aperiam. Architecto beatae vitae dicta sunt explicabo.Eu fugiat nulla pariatur.
-                                    </p>
-                                </div>
-                                <div className="images flex flex-wrap">
-                                    <div className='w-1/2 md:w-1/4 p-2'>
-                                        <Image preview={true} src='/banner.jpg' alt=''/>
-                                    </div>
-                                    <div className='w-1/2 md:w-1/4 p-2'>
-                                        <Image preview={true} src='/banner.jpg' alt=''/>
-                                    </div>
-                                    <div className='w-1/2 md:w-1/4 p-2'>
-                                        <Image preview={true} src='/banner.jpg' alt=''/>
-                                    </div>
-                                    <div className='w-1/2 md:w-1/4 p-2'>
-                                        <Image preview={true} src='/banner.jpg' alt=''/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w-full lg:w-[30%] px-10">
-                        <h2 className="text-xl font-bold mb-4 mt-10">Վերջին նորությունները</h2>
-                        <ul className="border-t border-gray-300">
-                            {news.map((item, index) => (
-                                <li
-                                    key={index}
-                                    className="border-b border-gray-300 py-2 hover:bg-gray-100 transition duration-200 cursor-pointer"
-                                >
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <Details data={data} lastNews={lastNews}/>
         </div>
     );
 };

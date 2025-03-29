@@ -13,9 +13,11 @@ export default function Blog() {
                     Բլոգ
                 </h1>
             </div>
-            {blogs?.map((item, index) => (
-                <Item reverse={index%2===0} key={index} item={item} />
-            ))}
+            {blogs?.map((item, index) => {
+                const slug = item?.title?.toLowerCase().replace(/\s+/g, "-"); // Convert title to slug
+                return(
+                <Item reverse={index%2===0} slug={slug} key={index} item={item} />
+            )})}
 
             <div className="text-center py-5">
                 <Link href={'/blogs'}>

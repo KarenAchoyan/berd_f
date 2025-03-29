@@ -2,6 +2,7 @@
 import React, {useContext} from 'react';
 import styles from "@/app/about/about.module.css";
 import {ManagerContext} from "@/providers/ManagerProvider";
+import parse from "html-react-parser";
 
 const Managers = () => {
     const managers = useContext(ManagerContext);
@@ -14,7 +15,8 @@ const Managers = () => {
                         <img src={process.env.IMAGE_URL+item.image} alt=""/>
                     </div>
                     <div className={styles.content}>
-                        <p dangerouslySetInnerHTML={{__html: item?.content}}></p>
+
+                        <p>{parse(item?.content || "")}</p>
                     </div>
                 </div>
             ))}

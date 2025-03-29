@@ -12,6 +12,7 @@ const Page = async () => {
     return (
         <div>
             <PageBanner title={''}/>
+
             <div className={styles.header}>
                 <h1>«Բերդ» պարային անսամբլ </h1>
             </div>
