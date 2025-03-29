@@ -4,6 +4,8 @@ import {Image} from "antd";
 import {CalendarOutlined} from "@ant-design/icons";
 import Details from "@/components/blog/details";
 import Head from "next/head";
+import parse from "html-react-parser";
+import {truncateText} from "@/utils/utils";
 
 async function getSingleNews(slug) {
     try {
@@ -37,7 +39,7 @@ export async function generateMetadata({ params }) {
 
     const data = result.data.data;
     const title = data.title || "Blog Post";
-    const description = data.content?.substring(0, 160) || "Read our latest blog post on various topics.";
+    const description = truncateText(parse(data?.content  || "Read our latest blog post on various topics."), 160)
     const image = process.env.IMAGE_URL + data.avatar || "/default-avatar.png"; // Fallback image if no avatar
 
     return {
