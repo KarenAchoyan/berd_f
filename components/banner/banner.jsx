@@ -21,17 +21,13 @@ export function Banner() {
 
     return (
         <div className="relative w-full h-[300px] min-h-[300px] sm:h-[500px] md:h-[650px] lg:h-[800px] carousel-banner">
-            <Slider {...settings}>
-                {images?.data?.map((img, index) => (
-                    <div key={index} className="relative w-full h-full">
+                    <div  className="relative w-full h-full">
                         <img
                             className="w-full h-full object-cover"
-                            src={process.env.IMAGE_URL+img.image}
-                            alt={`Banner ${index + 1}`}
+                            src={"berd.gif"}
+                            alt={`Banner`}
                         />
                     </div>
-                ))}
-            </Slider>
         </div>
     );
 }

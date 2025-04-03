@@ -6,7 +6,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 dayjs.extend(customParseFormat);
 
 
-const CustomCalendar = ({dates}) => {
+const CustomCalendar = ({dates }) => {
     const [selectedDate, setSelectedDate] = useState(dayjs());
     const handleDateClick = (day) => {
         const dayName = day.format('D');
