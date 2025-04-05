@@ -47,7 +47,7 @@ export default async function Page() {
             value={{speeches: speeches.data, galleries: galleries.data, images: sliders, tickets, blogs: blogs.data}}>
             <Banner/>
             <Performance/>
-            {tickets.length > 0 && (
+            {tickets?.data?.length > 0 && (
                 <Tickets/>
             )}
             <Galleries/>
