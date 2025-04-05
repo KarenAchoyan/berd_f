@@ -17,10 +17,6 @@ const Item = ({item, reverse = false, slug}) => {
             </div>
             <div className="md:w-1/2 flex items-center h-full">
                 <div>
-                    <div className="flex items-center text-gray-500 text-sm mt-2">
-                        <CalendarOutlined className="mr-1"/>
-                        <span>October 8, 2019</span>
-                    </div>
                     <h3 className="text-3xl font-bold mt-3">
                         {item?.title}
                     </h3>

@@ -60,7 +60,6 @@ const Page = async ({params}) => {
     const lastNews = result.data.lastNews;
     return (
         <div>
-
             <PageBanner/>
             <Details data={data} lastNews={lastNews}/>
         </div>
